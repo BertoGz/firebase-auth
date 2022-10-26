@@ -10,5 +10,5 @@ This [React](https://reactjs.org/) project allows users to signup or login to th
 
 **Installation**
 clone the repo and navigate to the folder and run
-- npm install to install project dependencies
-- npm start to launch the app
+- **npm install** to install project dependencies
+- **npm start** to launch the app
