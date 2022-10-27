@@ -126,9 +126,8 @@ function Login() {
     }
   }
   return (
-    <div className="flex place-items-center justify-center bg-red-300 h-screen">
+    <div className="flex flex-col place-items-center justify-center bg-red-300 h-screen">
       <div className="bg-slate-50 inline-flex flex-col w-[340px] space-y-8 p-4 mb-[20%] shadow-lg rounded">
-      
         <div className="inline-flex flex-row">
           <AiFillPhone className="text-emerald-400" />
           <h1 className="text-slate-600 font-bold">Firebase-auth</h1>
@@ -191,6 +190,14 @@ function Login() {
           {isLogin ? "Login" : "Sign Up"}
         </button>
       </div>
+      <footer>
+        <div className="flex flex-col items-center">
+          <h1 className="text-slate-600 text-sm font-bold">Created using</h1>
+          <h1 className="text-slate-600 text-sm">TailwindCss</h1>
+          <h1 className="text-slate-600 text-sm">React Query</h1>
+          <h1 className="text-slate-600 text-sm">Firebase</h1>
+        </div>
+      </footer>
     </div>
   );
 }

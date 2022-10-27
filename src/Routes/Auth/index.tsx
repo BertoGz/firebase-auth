@@ -47,10 +47,21 @@ const Auth = () => {
     );
   }
   return (
-    <>
-      <h1>You are signed on!</h1>
-      <h1>Press here to logout</h1>
-    </>
+    <div className="flex flex-col place-items-center space-y-3 h-screen bg-purple-300">
+      <h1 className="text-3xl pt-10">You are signed on!</h1>
+      <button
+        onClick={() => {
+          signOutMutation(null, {
+            onSuccess: () => {
+              navigate("/");
+            },
+          });
+        }}
+        className={`py-2 px-4 bg-blue-700 font-bold rounded ${"text-white"}`}
+      >
+        Sign out
+      </button>
+    </div>
   );
 };
 export default Auth;
