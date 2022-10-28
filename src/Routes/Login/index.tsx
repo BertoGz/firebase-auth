@@ -11,10 +11,6 @@ import {
   loginUserErrorStates,
   createUserErrorStates,
 } from "../../React-Query";
-import { FirebaseActions } from "../../Firebase";
-import { getAuth } from "firebase/auth";
-
-const auth = getAuth();
 
 function Login() {
   const navigate = useNavigate();
@@ -48,18 +44,6 @@ function Login() {
     );
   }
 
-  useEffect(() => {
-    const isSignInWithEmailLink = FirebaseActions.isSignInWithEmailLink();
-    auth.onAuthStateChanged((user) => {
-      if (user && !isSignInWithEmailLink) {
-        onLogin();
-      }
-    });
-
-    if (isSignInWithEmailLink) {
-      onLogin(isSignInWithEmailLink);
-    }
-  }, []);
 
   function onChangeCredentials(key: string, e: any) {
     if (!e) {
