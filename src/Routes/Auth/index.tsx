@@ -7,6 +7,9 @@ const Auth = () => {
   const { data: userData } = useQueryUserData();
   const { mutateAsync: signOutMutation } = useMutationLogout();
   const { emailVerified, email } = userData || {};
+  if (!userData) {
+    return <></>;
+  }
   if (!emailVerified) {
     return (
       <div className="flex flex-col place-items-center space-y-10">
