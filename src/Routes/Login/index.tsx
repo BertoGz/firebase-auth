@@ -1,10 +1,11 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { Input } from "../../Components/Input";
+import { AppFooter, Input } from "../../Components";
 import { HiOutlineMail } from "react-icons/hi";
 import { AiFillPhone } from "react-icons/ai";
 import { MdPassword } from "react-icons/md";
 import { useState } from "react";
+import { SpinnerCircular } from "spinners-react";
 import {
   useMutationCreateUser,
   useMutationLoginUser,
@@ -14,8 +15,10 @@ import {
 
 function Login() {
   const navigate = useNavigate();
-  const { mutateAsync: loginMutation } = useMutationLoginUser();
-  const { mutateAsync: createUserMutation } = useMutationCreateUser();
+  const { mutateAsync: loginMutation, isLoading: isLoadingLogin } =
+    useMutationLoginUser();
+  const { mutateAsync: createUserMutation, isLoading: isLoadingCreateUser } =
+    useMutationCreateUser();
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
@@ -43,7 +46,6 @@ function Login() {
       }
     );
   }
-
 
   function onChangeCredentials(key: string, e: any) {
     if (!e) {
@@ -172,14 +174,16 @@ function Login() {
           {" "}
           {isLogin ? "Login" : "Sign Up"}
         </button>
+        {isLoadingCreateUser ||
+          (isLoadingLogin && (
+            <SpinnerCircular
+              className="place-self-center"
+              color="blue"
+              size={"30px"}
+            />
+          ))}
       </div>
-        <div className="flex flex-col place-items-center">
-          <h1 className="text-slate-600 text-sm font-bold">Created using</h1>
-          <h1 className="text-slate-600 text-sm">TailwindCss</h1>
-          <h1 className="text-slate-600 text-sm">React Query</h1>
-          <h1 className="text-slate-600 text-sm">Firebase</h1>
-        </div>
-
+      <AppFooter />
     </div>
   );
 }

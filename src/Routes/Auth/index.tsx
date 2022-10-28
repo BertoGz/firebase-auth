@@ -2,6 +2,7 @@ import { useQueryUserData } from "../../React-Query/Queries/useQueryUserData";
 import { useNavigate } from "react-router-dom";
 import { useMutationLogout } from "../../React-Query/Mutations/useMutationLogout";
 import { FirebaseActions } from "../../Firebase";
+import { AppFooter } from "../../Components";
 const Auth = () => {
   const navigate = useNavigate();
   const { data: userData } = useQueryUserData();
@@ -50,20 +51,25 @@ const Auth = () => {
     );
   }
   return (
-    <div className="flex flex-col place-items-center space-y-3 h-screen bg-purple-300">
-      <h1 className="text-3xl pt-10">You are signed on!</h1>
-      <button
-        onClick={() => {
-          signOutMutation(null, {
-            onSuccess: () => {
-              navigate("/");
-            },
-          });
-        }}
-        className={`py-2 px-4 bg-blue-700 font-bold rounded ${"text-white"}`}
-      >
-        Sign out
-      </button>
+    <div style={{height:'100vh', maxHeight:window.innerHeight}} className="grid grid-rows-2 bg-emerald-200">
+      <div className="flex flex-col place-items-center space-y-5">
+        <h1 className="text-5xl pt-10 text-cyan-800 font-bold">Success!</h1>
+        <h1 className="text-2xl text-cyan-800">You are signed on</h1>
+      </div>
+      <div className="bg-cyan-800 flex justify-center place-items-center">
+        <button
+          onClick={() => {
+            signOutMutation(null, {
+              onSuccess: () => {
+                navigate("/");
+              },
+            });
+          }}
+          className={`px-10 font-bold rounded text-white`}
+        >
+          Press here to sign out
+        </button>
+      </div>
     </div>
   );
 };
