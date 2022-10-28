@@ -6,7 +6,7 @@ This [React](https://reactjs.org/) project allows users to signup or login to th
 - Use React Query to manage client-side state
 
 **Interactable Demo**
-[demo](https://fir-auth-app-e0044.web.app/)
+[Firenbase-auth-app](https://fir-auth-app-e0044.web.app/)
 
 **Installation**
 clone the repo and navigate to the folder and run
