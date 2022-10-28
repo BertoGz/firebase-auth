@@ -3,8 +3,8 @@ import { queryClient } from "..";
 import { FirebaseActions } from "../../Firebase";
 type TypeParamsUserLogin = {
   isEmailLinkSignin: boolean;
-  email: string;
-  password: string;
+  email?: string;
+  password?: string;
 };
 export const loginUserErrorStates = {
   null: null,
