@@ -5,7 +5,7 @@ This [React](https://reactjs.org/) project allows users to signup or login to th
 - Use TailwindCss to create custom stylized components
 - Use React Query to manage client-side state
 
-**Interactable Demo**
+**Interactive Demo**
 [Firenbase-auth-app](https://fir-auth-app-e0044.web.app/)
 
 **Installation**
